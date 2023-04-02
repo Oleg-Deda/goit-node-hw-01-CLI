@@ -3,7 +3,7 @@ const path = require("path");
 const { nanoid } = require("nanoid");
 const contactsPath = path.resolve("db/contacts.json");
 
-// Read all contacts
+// Зчитуємо усі контакти
 const readContacts = async () => {
   try {
   const data = await fs.readFile(contactsPath, "utf8");
@@ -13,17 +13,17 @@ const readContacts = async () => {
 }
 };
 
-// Update contacts
+// Оновлюємо контакти
 const updateContacts = (contacts) => {
 	return fs.writeFile(contactsPath, JSON.stringify(contacts), "utf8");
 };
 
-// Get all contacts
+// Отримуємо усі контакти
  function listContacts() {
   return  readContacts();
 }
 
-// Get contact by id
+// Отримуємо контакт за ІД
 async function getContactById(contactId) {
   try {
   const contacts = await readContacts();
@@ -34,7 +34,7 @@ async function getContactById(contactId) {
 }
 }
 
-// Remove contact by id
+// Видаляємо контакт по ІД
 async function removeContact(contactId) {
   try {
   const contacts = await readContacts();
@@ -50,7 +50,7 @@ async function removeContact(contactId) {
 }
 }
 
-// Add contact
+// Добавляємо контакт
 async function addContact(name, email, phone) {
   try {
   const contacts = await readContacts();
