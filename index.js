@@ -17,14 +17,14 @@ program
 
 program.parse(process.argv);
 
-const argv = program.opts();
+const options  = program.opts();
 
 // TODO: рефакторить
 async function invokeAction({ action, id, name, email, phone }) {
   switch (action) {
     case "list":
       const allContacts  = await listContacts();
-      console.log(allContacts );
+      console.table(allContacts);
       break;
 
     case "get":
@@ -51,4 +51,4 @@ async function invokeAction({ action, id, name, email, phone }) {
       console.warn("\x1B[31m Unknown action type!");
   }
 }
-invokeAction(argv);
+invokeAction(options);
