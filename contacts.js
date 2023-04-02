@@ -34,7 +34,7 @@ async function getContactById(contactId) {
 }
 }
 
-// Видаляємо контакт по ІД
+// Видаляємо контакт за ІД
 async function removeContact(contactId) {
   try {
   const contacts = await readContacts();
